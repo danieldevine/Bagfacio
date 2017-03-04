@@ -1,0 +1,14 @@
+{
+    "name": "coderjerk/bagfacio",
+    "description": "facebook bot",
+    "require": {
+        "facebook/graph-sdk": "^5.4"
+    },
+    "license": "wtfpl",
+    "authors": [
+        {
+            "name": "danieldevine",
+            "email": "dan@maverick-intl.com"
+        }
+    ]
+}
