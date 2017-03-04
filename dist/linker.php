@@ -10,16 +10,24 @@ $fb = new Facebook\Facebook([
  'default_graph_version' => 'v2.8',
 ]);
 
-$dm = new dataMuse("ml=society&max=400");
+$dm = new dataMuse("ml=food&max=600");
+$wordOne = $dm->randomWord();
+$wordTwo = $dm->randomWord();
 
-$fbLink = "https://en.wikipedia.org/wiki/".$dm->randomWord();
-$fbMessage = "Hi Friends, we should all think more about " . $dm->randomWord() . ' and what it means to us. Particularly in the context of ' . $dm->randomWord() .'. Like and Share and Like if you agree';
-$fbImg = 'https://loremflickr.com/476/249/politics?random=1';
+$fbLink = "https://en.wikipedia.org/wiki/".$wordOne;
+$fbMessage = array (
+     "These days, we should all think more about " . $wordOne() . ' and what it means to us. Particularly in the context of ' . $wordTwo .'. Like and Share and Like if you agree',
+     "I'm not sure how to feel about ". $wordTwo . "these days. Maybe we should be talking about ". $wordTwo . " instead? Just sayin'",
+     "Do you remember when " . $wordOne . "really meant ". $wordOne . "?? Now it means ". $wordTwo . " more often than not. See evidence below: ",
+     "When we were young, all we cared about was ". $wordOne . ". Now we're older and all we can amnage is " . $wordTwo .". :) :) :("
+
+);
+
+shuffle($fbMessage);
 
 $linkData = [
  'link'    => $fbLink,
- 'message' => $fbMessage,
- 'picture' => $fbImg
+ 'message' => $fbMessage[0],
 ];
 
 try {
