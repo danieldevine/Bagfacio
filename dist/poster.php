@@ -1,9 +1,13 @@
 <?php
-
+/**
+ * Posts a photo with a caption to our Facebook feed.
+ *
+ */
 require_once("config/fb.php");
 require_once("vendor/autoload.php");
 require_once("inc/classes/dataMuse.php");
 
+//fb auth
 $fb = new Facebook\Facebook([
  'app_id'                => $appID,
  'app_secret'            => $appSecret,
@@ -13,6 +17,10 @@ $fb = new Facebook\Facebook([
 $dm    = new dataMuse("ml=fun&max=600");
 $randomWord = $dm->randomWord();
 
+/**
+ * An array of neat captions to choose from
+ * @var array
+ */
 $captions =array(
     "well this " . $randomWord . " is the best ever",
     "I'm not convinced that this ". $randomWord ." is a good example.",
@@ -20,9 +28,14 @@ $captions =array(
     "I hate this " . $randomWord . " so very, very much.",
     "2018 is the Chinese year of the ". $randomWord
 );
+//shuffle int orandom order
 shuffle($captions);
 
-
+/**
+ * Get a random image from lorem flickr
+ * http://loremflickr.com/
+ * @var string
+ */
 $fbImg     = 'https://loremflickr.com/476/249/'.$randomWord.'?random=1';
 $fbCaption = $captions[0];
 
