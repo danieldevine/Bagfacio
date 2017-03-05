@@ -4,21 +4,89 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Senor Bagfacio</title>
+    <title>Señor Bagfacio</title>
+    <style media="screen">
+        @import url('https://fonts.googleapis.com/css?family=Pacifico|Source+Code+Pro:300');
+        html{
+            font-size: 16px;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            color: #333333;
+            position: relative;
+            font-family: 'Source Code Pro', monospace;
+            margin: 0;
+            padding: 0;
+
+        }
+        header {
+            display: block;
+            padding: 0rem 1rem 4rem;
+            background: #dcb58c;
+            box-sizing: border-box;
+            msrgin: 0 auto;
+        }
+        h1 {
+            font-family: 'Pacifico', cursive;
+            font-size: 200px;
+            font-weight: 400;
+            margin: 0;
+            padding: 0;
+        }
+        .wrapper {
+            max-width: 960px;
+            margin: 0 auto;
+        }
+        .content {
+            padding: 4rem 1rem;
+        }
+        footer {
+            color: #ffffff;
+            background: #333333;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2;
+            padding: 2rem 1rem;
+        }
+        footer a {
+            color: #dcb58c;
+        }
+
+        footer a:hover {
+            color: #ffffff;
+        }
+    </style>
 </head>
     <body>
         <header>
-            <h1>Bagfacio</h1>
+            <div class="wrapper">
+                <h1>Bagfacio</h1>
+            </div>
         </header>
-        <section>
-            <p>Facebook is dull and no one likes me <br>
-            so I've asked Senor Bagfacio to step in and help out.
-            Lets see if a nonsense spouting robot locum can be mre popular than meat me.</p>
-            <a href="linker.php">Link </a>
-            <a href="poster.php">Photo</a>
+        <section class="content">
+            <div class="wrapper">
+                <p>
+                    Facebook is dull and no one likes my crap on there. <br>
+                    So I've asked Señor Bagfacio to step in and help out.
+                </p>
+                <p>
+                    He's going to generate links to wikipedia articles and post wonderful photographs with witty captions.
+                    Lets see if a rubbish spouting robot locum can be more popular than meat me.
+                </p>
+                <div class="buttons">
+                    <p>Señor Bagfacio runs on a cronjob on my server, but can also be activated from here if you like.</p>
+                    <a class="button" href="linker.php">Post a Link</a>
+                    <a class="button" href="poster.php">Post a photo</a>
+                </div>
+                <p>Señor Bagfacio is made with PHP and uses the Facebook PHP SDK and relies on the Open Graph API </p>
+                <p>Licensed under the WTFL license - <a href="https://github.com/danieldevine/Bagfacio"> view the source code on Github</a>. Pull requests accepted.</p>
+            </div>
         </section>
         <footer>
-            Dan Devine 2017
+            <div class="wrapper">
+                © Dan Devine 2017 | <a href="https://www.coderjerk.com">Coderjerk</a> | <a href="https://github.com/danieldevine/Bagfacio">Github</a>
+            </div>
         </footer>
     </body>
 </html>
