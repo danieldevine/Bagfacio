@@ -1,4 +1,4 @@
-dist/config/
+dist/config/fb.php
 dist/vendor/
 node_modules/
 sass_cache/
