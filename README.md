@@ -1,9 +1,6 @@
 # BAGFACIO
 
-v0.0.3
-
-## New in version 0.0.3
-Adds ability to create an image with an inspiring message overlaid and post it to your facebook feed.
+v0.0.4
 
 ### Cool Facebook Bot for interestingness and fun.
 
@@ -20,3 +17,5 @@ This runs on a cronjob on my server, at a frequency that has yet to get me into 
 
 ### Achtung!
 Your 'friends' may think you're having a nervous breakdown and Facebook may ban you for life. Use at your own risk.
+
+###

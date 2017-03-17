@@ -3,7 +3,7 @@
  * Makes an image with an inspiring quote and shares it to our fb feed.
  *
  */
-include_once 'inc/components/loaders/loader.php';
+include_once $_SERVER["DOCUMENT_ROOT"] . '/inc/components/loaders/loader.php';
 
 $dm = new dataMuse("rel_jja=dumb&max=600");
 
@@ -60,28 +60,5 @@ header('Content-Type: image/jpeg');
 
 $img = loadQuoteJpg('http://loremflickr.com/600/600/spiritual', $quote[0]);
 
-imagepng($img, 'radical.png' );
+imagepng($img);
 imagedestroy($img);
-
-$image = 'https://bagfacio.coderjerk.com/radical.png';
-
-$privacy = array(
-        'value' => 'EVERYONE'
-    );
-
-$data = [
-  'message' => '#bagfacioinspires #inspiring #bagfacio',
-  'url' => $image,
-  'privacy' => $privacy
-];
-
-try {
- $response = $fb->post('/me/photos', $data, $pageAccessToken);
-} catch(Facebook\Exceptions\FacebookResponseException $e) {
- echo 'Graph returned an error: '.$e->getMessage();
- exit;
-} catch(Facebook\Exceptions\FacebookSDKException $e) {
- echo 'Facebook SDK returned an error: '.$e->getMessage();
- exit;
-}
-$graphNode = $response->getGraphNode();
