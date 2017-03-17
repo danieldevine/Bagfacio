@@ -3,16 +3,7 @@
  * Posts a photo with a caption to our Facebook feed.
  *
  */
-require_once("config/fb.php");
-require_once("vendor/autoload.php");
-require_once("inc/classes/dataMuse.php");
-
-//fb auth
-$fb = new Facebook\Facebook([
- 'app_id'                => $appID,
- 'app_secret'            => $appSecret,
- 'default_graph_version' => 'v2.8',
-]);
+include_once 'inc/components/loaders/loader.php';
 
 $dm    = new dataMuse("ml=fun&max=600");
 $randomWord = $dm->randomWord();

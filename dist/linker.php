@@ -3,16 +3,7 @@
  * posts a link and message to your feed complete with stale opinions.
  * Feel free to alter these depending on your age group/demographic as these are fat white man in his late thirties centric.
  */
-require_once("config/fb.php");
-require_once("vendor/autoload.php");
-require_once("inc/classes/dataMuse.php");
-
-//build the auth for Facebook
-$fb = new Facebook\Facebook([
- 'app_id'                => $appID,
- 'app_secret'            => $appSecret,
- 'default_graph_version' => 'v2.8',
-]);
+include_once 'inc/components/loaders/loader.php';
 
 //use our dataMuse class to set a theme using ml(means like)
 //plenty of other configurations available -- see here: www.datamuse.com/api/
