@@ -25,7 +25,7 @@
             padding: 0rem 1rem 4rem;
             background: #dcb58c;
             box-sizing: border-box;
-            msrgin: 0 auto;
+            margin: 0 auto;
         }
         h1 {
             font-family: 'Pacifico', cursive;
@@ -81,16 +81,17 @@
                     So I've asked Señor Bagfacio to step in and help out.
                 </p>
                 <p>
-                    He's going to generate links to wikipedia articles and post wonderful photographs with witty captions.
+                    He generates links to wikipedia articles and posts wonderful photographs with witty captions.
                     Lets see if a rubbish spouting robot locum can be more popular than meat me.
                 </p>
                 <div class="buttons">
                     <p>Señor Bagfacio runs on a cronjob on my server, but can also be activated from here if you like.</p>
                     <a class="button" href="linker.php">Post a Link</a>
                     <a class="button" href="poster.php">Post a photo</a>
+                    <a class="button" href="postimage.php">Post an inspiring quote</a>
                 </div>
                 <p>Señor Bagfacio is made with PHP and uses the Facebook PHP SDK and relies on the Open Graph API </p>
-                <p>Licensed under the WTFL license - <a href="https://github.com/danieldevine/Bagfacio"> view the source code on Github</a>. Pull requests accepted.</p>
+                <p>Licensed under the WTFPL license - <a href="https://github.com/danieldevine/Bagfacio"> view the source code on Github</a>. Pull requests accepted.</p>
             </div>
         </section>
         <footer>
