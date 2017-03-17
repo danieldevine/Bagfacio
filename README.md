@@ -1,6 +1,9 @@
 # BAGFACIO
 
-v0.0.2
+v0.0.3
+
+## New in version 0.0.3
+Adds ability to create an image with an inspiring message overlaid and post it to your facebook feed.
 
 ### Cool Facebook Bot for interestingness and fun.
 
