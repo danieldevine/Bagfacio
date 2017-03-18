@@ -13,7 +13,8 @@ $quote = array(
     "When I was a boy \n I dreamed of \n" . $dm->randomWord() . "s. Now \n I own 50 " . $dm->randomWord() . "s\n - Stefe Jobs",
     "If I told you \n that I ate 25 \n" . $dm->randomWord() . "s a day, \n would you be suprised? \n - Stive Jobs",
     "I am as strong as 40 \n" . $dm->randomWord() . "s. And more muscular \n than all the ". $dm->randomWord() . "s.\n - Deerpark Chopra",
-    "A wise man can become \n Wealthy with just \n ". $dm->randomWord() . "s, ". $dm->randomWord() . "s, \n and a " . $dm->randomWord() . "\n - Steve Jibs"
+    "A wise man can become \n Wealthy with just \n ". $dm->randomWord() . "s, ". $dm->randomWord() . "s, \n and a " . $dm->randomWord() . "\n - Steve Jibs",
+    "Nothing's going to change \n my love for " . $dm->randomWord() . "\n I want to tell the \n world how much I \n " . $dm->randomWord() . " you. \n - Glen Frey"
 
 );
 
