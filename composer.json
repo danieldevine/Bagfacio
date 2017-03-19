@@ -1,15 +1,16 @@
 {
     "name": "coderjerk/bagfacio",
     "description": "facebook bot",
+    "config": {
+        "vendor-dir": "dist/vendor"
+    },
     "require": {
         "facebook/graph-sdk": "^5.4",
         "abraham/twitteroauth": "^0.7.2"
     },
     "license": "wtfpl",
-    "authors": [
-        {
-            "name": "danieldevine",
-            "email": "jerk@coderjerk.com"
-        }
-    ]
+    "authors": [{
+        "name": "danieldevine",
+        "email": "jerk@coderjerk.com"
+    }]
 }
