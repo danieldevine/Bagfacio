@@ -1,5 +1,5 @@
 dist/config/fb.php
 dist/config/twitter.php
-#dist/vendor/
+dist/vendor/
 node_modules/
 sass_cache/

@@ -1,3 +1,6 @@
+### New in version 0.0.5
+Upload our generated images to twitter.
+
 ### New in version 0.0.4
 Radical new quotes, stored in an array and shuffled for variety. A more condensed font added for overlays.
 
