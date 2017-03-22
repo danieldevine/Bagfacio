@@ -16,7 +16,7 @@ use Abraham\TwitterOAuth\TwitterOAuth;
  * should be an adjective
  * @var string
  */
-$theme = 'fat';
+$theme = 'poor';
 
 $dm = new dataMuse("rel_jja=".$theme."&max=600");
 
@@ -41,11 +41,16 @@ imagedestroy($img);
  */
 $image = 'https://bagfacio.coderjerk.com/twurt.png';
 
+/**
+ * bring in an array of inspirational quotes
+ */
+include $root . '/inc/data/status.php';
+
 $connection = new TwitterOAuth($CONSUMER_KEY, $CONSUMER_SECRET, $ACCESS_TOKEN, $ACCESS_TOKEN_SECRET);
 
 $media = $connection->upload('media/upload', ['media' => $image]);
 $parameters = [
-    'status' => '#inspiration #MakeYourOwnLane #Inspiring',
+    'status' => $status[0],
     'media_ids' => implode(',', [$media->media_id_string])
 ];
 $result = $connection->post('statuses/update', $parameters);
