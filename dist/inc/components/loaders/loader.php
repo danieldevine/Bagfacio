@@ -6,7 +6,6 @@ require_once("$root/vendor/autoload.php");
 require_once("$root/inc/classes/dataMuse.php");
 require_once("$root/inc/functions/loadQuoteJpg.php");
 
-use Abraham\TwitterOAuth\TwitterOAuth;
 
 //build the auth for Facebook
 $fb = new Facebook\Facebook([
