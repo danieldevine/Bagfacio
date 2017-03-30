@@ -20,4 +20,4 @@ $quote = array(
     "The way you ".$dm->randomWord().", \nthe way you ".$dm->randomWord().", \nthe way you ".$dm->randomWord().", \ncan influence your life \n by 70 to 120 years. \n- Deepak Chopper"
 );
 
-shuffle($quote);?>
+shuffle($quote);

@@ -16,4 +16,4 @@ $status = array(
     "Like if you agree, Retweet if you believe #teamInspired"
 );
 
-shuffle($status);?>
+shuffle($status);

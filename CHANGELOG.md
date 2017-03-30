@@ -1,3 +1,11 @@
+# Changelog
+
+### New in version 0.0.7
+adds twitter feed to our homepage.
+
+### New in version 0.0.6
+adds shoutouts to followers with tweets.
+
 ### New in version 0.0.5
 Upload our generated images to twitter.
 

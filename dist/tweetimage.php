@@ -1,6 +1,10 @@
 <?php
 /**
- * Makes an image with an inspiring quote and posts it to our twitter feed.
+ * tweetimage.php
+ *
+ * @since v0.0.6
+ * Makes an image with an inspiring quote and message
+ * and posts it to our twitter feed.
  *
  */
 $root = $_SERVER["DOCUMENT_ROOT"];
@@ -11,11 +15,11 @@ require_once("$root/vendor/abraham/twitteroauth/autoload.php");
 use Abraham\TwitterOAuth\TwitterOAuth;
 
 /**
- * This will be the theme of the text part.
+ * This will be the 'theme' of the text part.
  * should be an adjective
  * @var string
  */
-$theme = 'poor';
+$theme = 'magic';
 
 $dm = new dataMuse("rel_jja=".$theme."&max=600");
 
@@ -29,7 +33,7 @@ include $root . '/inc/data/quotes.php';
  */
 header('Content-Type: image/jpeg');
 
-$img = loadQuoteJpg('http://loremflickr.com/600/600/spiritual', $quote[0]);
+$img = loadQuoteJpg('http://loremflickr.com/600/600/magic', $quote[0]);
 
 imagepng($img, 'twurt.png' );
 imagedestroy($img);
@@ -48,11 +52,6 @@ $connection = new TwitterOAuth($CONSUMER_KEY, $CONSUMER_SECRET, $ACCESS_TOKEN, $
  * @var array
  */
 $followers = array();
-
-/**
- * get the ids
- *
- */
 $ids = $connection->get('followers/ids');
 
 /**

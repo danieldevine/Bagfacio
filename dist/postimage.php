@@ -13,7 +13,7 @@ include_once $root . '/inc/components/loaders/loader.php';
  * make it a noun for best results.
  * @var string
  */
-$theme = 'dumb';
+$theme = 'old';
 
 $dm = new dataMuse("rel_jja=".$theme."&max=600");
 
@@ -27,7 +27,7 @@ include $root . '/inc/data/quotes.php';
  */
 header('Content-Type: image/jpeg');
 
-$img = loadQuoteJpg('http://loremflickr.com/600/600/spiritual', $quote[0]);
+$img = loadQuoteJpg('http://loremflickr.com/600/600/sunrise', $quote[0]);
 
 imagepng($img, 'radical.png' );
 imagedestroy($img);
