@@ -1,0 +1,3 @@
+<?php
+
+$mood = 'sad';
