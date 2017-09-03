@@ -9,13 +9,13 @@ $root = $_SERVER["DOCUMENT_ROOT"];
 include_once $root . '/inc/components/loaders/loader.php';
 
 /**
- * This will be the theme of the text part.
- * make it a noun for best results.
+ * This will be the 'theme' of the text part.
+ * should be an adjective
  * @var string
  */
-$theme = 'old';
+$theme = 'heartbroken';
 
-$dm = new dataMuse("rel_jja=".$theme."&max=600");
+$dm = new dataMuse("ml=".$theme."&max=600");
 
 /**
  * bring in an array of inspirational quotes
@@ -27,7 +27,7 @@ include $root . '/inc/data/quotes.php';
  */
 header('Content-Type: image/jpeg');
 
-$img = loadQuoteJpg('http://loremflickr.com/600/600/sunrise', $quote[0]);
+$img = loadQuoteJpg('http://loremflickr.com/600/600/' . $theme, $quote[0]);
 
 imagepng($img, 'radical.png' );
 imagedestroy($img);
