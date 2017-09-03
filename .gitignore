@@ -3,3 +3,4 @@ dist/config/twitter.php
 dist/vendor/
 node_modules/
 sass_cache/
+dploy.yaml
