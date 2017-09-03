@@ -19,14 +19,14 @@ use Abraham\TwitterOAuth\TwitterOAuth;
  * should be an adjective
  * @var string
  */
-$theme = 'sad';
+$theme = 'money';
 
 $dm = new dataMuse("rel_jja=".$theme."&max=600");
 
 /**
  * bring in an array of inspirational quotes
  */
-include $root . '/inc/data/quotes.php';
+include $root . '/inc/data/monetyquotes.php';
 
 /**
  * Begin our generated image.
@@ -35,15 +35,15 @@ header('Content-Type: image/jpeg');
 
 $img = loadQuoteJpg('http://loremflickr.com/600/600/' . $theme, $quote[0]);
 
-imagepng($img, 'twurt.png' );
+imagepng($img, 'twart.png' );
 imagedestroy($img);
 
-$image = 'https://bagfacio.coderjerk.com/twurt.png';
+$image = 'https://bagfacio.coderjerk.com/twart.png';
 
 /**
  * bring in an array of stauseseses
  */
-include $root . '/inc/data/status.php';
+include $root . '/inc/data/moneystatus.php';
 
 $connection = new TwitterOAuth($CONSUMER_KEY, $CONSUMER_SECRET, $ACCESS_TOKEN, $ACCESS_TOKEN_SECRET);
 

@@ -1,0 +1,11 @@
+stage:
+  scheme: sftp
+  exclude:
+    - dploy.yaml
+    - hank.sql
+  host: coderjerk.com
+  pass: NAX^NXsA
+  path:
+    local: dist/
+    remote: /home/dh_2ru2pk/hell-island.com
+  user: dh_2ru2pk 
