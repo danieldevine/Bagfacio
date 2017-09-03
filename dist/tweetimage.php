@@ -7,7 +7,8 @@
  * and posts it to our twitter feed.
  *
  */
-$root = $_SERVER["DOCUMENT_ROOT"];
+$root     = $_SERVER["DOCUMENT_ROOT"];
+$site_url = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]";
 
 include_once $root . '/inc/components/loaders/loader.php';
 require_once("$root/vendor/abraham/twitteroauth/autoload.php");
@@ -28,17 +29,21 @@ $dm = new dataMuse("rel_jja=".$theme."&max=600");
  */
 include $root . '/inc/data/quotes.php';
 
+$pixelImage = new LoremPixel('600', '600', 'lorem');
+$thisImage = $pixelImage->getLoremPixel();
+
 /**
  * Begin our generated image.
  */
 header('Content-Type: image/jpeg');
 
-$img = loadQuoteJpg('http://loremflickr.com/600/600/' . $theme, $quote[0]);
+// $img = loadQuoteJpg('http://loremflickr.com/600/600/' . $theme, $quote[0]);
+$img = loadQuoteJpg($thisImage, $quote[0]);
 
 imagepng($img, 'twurt.png' );
 imagedestroy($img);
 
-$image = 'https://bagfacio.coderjerk.com/twurt.png';
+$image = $site_url.'twurt.png';
 
 /**
  * bring in an array of stauseseses
