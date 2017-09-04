@@ -1,5 +1,11 @@
 # Changelog
 
+### New in version 0.0.9
+Adds Friendo 
+
+### New in version 0.0.8
+fixes issues with http requests from the live server
+
 ### New in version 0.0.7
 adds twitter feed to our homepage.
 
