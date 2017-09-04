@@ -1,9 +1,11 @@
-dist/config/fb.php
-dist/config/twitter.php
-dist/vendor/
-node_modules/
-sass_cache/
+/dist/config/fb.php
+/dist/config/twitter.php
+/dist/vendor/
+/node_modules/
+/sass_cache/
 dploy.yaml
 /dploy.yaml
 .DS_Store
-/*/.DS_Store
+/dist/.DS_Store
+*.DS_Store
+

@@ -43,7 +43,7 @@ $img = loadQuoteJpg($pixelImage, $quote[0]);
 imagepng($img, 'twurt.png' );
 imagedestroy($img);
 
-$image = $site_url.'twurt.png';
+$image = $site_url.'/twurt.png';
 
 /**
  * bring in an array of stauseseses
