@@ -22,13 +22,13 @@ function loadQuoteAlt($imgname, $quote)
     $funt = $_SERVER["DOCUMENT_ROOT"] .'/assets/fonts/amatic.ttf';
 
     // Add some shadow to the text
-    imagettftext($im, 60, 60, 24, 124, $black, $funt, $quote);
+    imagettftext($im, 50, 0, 24, 124, $black, $funt, $quote);
 
     // Add the text
-    imagettftext($im, 60, 60, 20, 120, $white, $funt, $quote);
+    imagettftext($im, 50, 0, 20, 120, $white, $funt, $quote);
 
     // tag the fecker
-    imagettftext($im, 12, 0, 250, 480, $black, $font, 'Bagfacio Best Friendos');
+    imagettftext($im, 12, 0, 250, 580, $black, $font, 'Bagfacio Best Friendos');
 
     return $im;
 }

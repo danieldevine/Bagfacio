@@ -66,7 +66,7 @@ $image = $site_url.'/flarp.png';
  * Create text portion with random status and random follower shoutouts.
  * @var string
  */
-$message =  "Hi there @".$followers[0]." : Your perfect friendo match is  " . $followers[1] . ". You should follow @" . $followers[2] . ", @" . $followers[3] .  " and @coderjerk";
+$message =  "Hi there @".$followers[0]." : Your perfect friendo match is  @" . $followers[1] . ". You should follow @" . $followers[2] . ", @" . $followers[3] .  " and @coderjerk";
 
 /**
  * Upload the status and image prior to posting.
