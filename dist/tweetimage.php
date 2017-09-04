@@ -29,8 +29,8 @@ $dm = new dataMuse("rel_jja=".$theme."&max=600");
  */
 include $root . '/inc/data/quotes.php';
 
-$pixelImage = new LoremPixel('600', '600', 'lorem');
-$thisImage = $pixelImage->getLoremPixel();
+$pixelImage = new LoremPixel('600', '600', 'bagfacio');
+$pixelImage = $pixelImage->getLoremPixel();
 
 /**
  * Begin our generated image.
@@ -38,7 +38,7 @@ $thisImage = $pixelImage->getLoremPixel();
 header('Content-Type: image/jpeg');
 
 // $img = loadQuoteJpg('http://loremflickr.com/600/600/' . $theme, $quote[0]);
-$img = loadQuoteJpg($thisImage, $quote[0]);
+$img = loadQuoteJpg($pixelImage, $quote[0]);
 
 imagepng($img, 'twurt.png' );
 imagedestroy($img);

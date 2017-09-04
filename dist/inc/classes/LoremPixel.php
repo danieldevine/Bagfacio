@@ -8,17 +8,17 @@
 class LoremPixel
 {
 
-    function __construct( $height, $width, $path ) {
+    function __construct( $height, $width, $name ) {
 
         $this->height   = $height;
         $this->width    = $width;
-        $this->path     = $path;
+        $this->name     = $name;
 
     }
 
     function getLoremPixel() {
         $ch = curl_init('http://www.lorempixel.com/'.$this->height.'/'.$this->width.'/');
-        $fp = fopen($this->path.'/images/twurt.jpg', 'wb');
+        $fp = fopen($_SERVER["DOCUMENT_ROOT"].'/images/'.$this->name.'.jpg', 'wb');
         curl_setopt($ch, CURLOPT_RETURNTRANSFER , 1);
         curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
         curl_setopt($ch, CURLOPT_FILE, $fp);
@@ -26,5 +26,9 @@ class LoremPixel
         curl_exec($ch);
         curl_close($ch);
         fclose($fp);
+
+        return $_SERVER["DOCUMENT_ROOT"].'/images/'.$this->name.'.jpg';
     }
 }
+
+
