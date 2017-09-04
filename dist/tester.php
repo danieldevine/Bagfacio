@@ -1,12 +1,5 @@
 <?php
-/**
- * tweetimage.php
- *
- * @since v0.0.6
- * Makes an image with an inspiring quote and message
- * and posts it to our twitter feed.
- *
- */
+
 $root     = $_SERVER["DOCUMENT_ROOT"];
 $site_url = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]";
 
@@ -15,45 +8,11 @@ require_once("$root/vendor/abraham/twitteroauth/autoload.php");
 
 use Abraham\TwitterOAuth\TwitterOAuth;
 
-/**
- * This will be the 'theme' of the text part.
- * should be an adjective
- * @var string
- */
-$theme = 'rich';
+$name  = 'flickr';
+$theme = 'fun';
+$image = new LoremFlickr(600, 600, $name, $theme);
+$image = $image->getLoremFlickr();
 
-/**
- * get some random words, using ou theme,
- * in a randomly sorted array
- */
-$dm = new dataMuse("rel_jja=".$theme."&max=600");
-
-/**
- * bring in an array of inspirational quotes
- */
-include $root . '/inc/data/quotes.php';
-
-/**
- * get a random image from lorempixel.com
- */
-$pixelImage = new LoremPixel('600', '600', 'bagfacio');
-$pixelImage = $pixelImage->getLoremPixel();
-
-/**
- * Begin our generated image.
- */
-header('Content-Type: image/jpeg');
-
-// $img = loadQuoteJpg('http://loremflickr.com/600/600/' . $theme, $quote[0]);
-$img = loadQuoteJpg($pixelImage, $quote[0]);
-imagepng($img, 'twurt.png' );
-imagedestroy($img);
-$image = $site_url.'/twurt.png';
-
-/**
- * bring in an array of stauseseseseses
- */
-include $root . '/inc/data/status.php';
 
 /**
  * connect to Twitter
@@ -90,10 +49,24 @@ foreach($ids_arrays as $implode) {
 shuffle($followers);
 
 /**
+ * Begin our generated image.
+ */
+header('Content-Type: image/jpeg');
+
+$friendo =  " @" .$followers[0]. "\n" . "+ \n".$followers[1];
+
+
+$img = loadQuoteAlt($image, $friendo);
+imagepng($img, 'flarp.png' );
+imagedestroy($img);
+$image = $site_url.'/flarp.png';
+
+
+/**
  * Create text portion with random status and random follower shoutouts.
  * @var string
  */
-$message = $status[0] . " @" . $followers[0] . " @" . $followers[1] . " @" . $followers[2]. " @" . $followers[3] . " @" . $followers[4];
+$message =  "Hi there @".$followers[0]." : Your perfect friendo match is  " . $followers[1] . ". You should follow @" . $followers[2] . ", @" . $followers[3] .  " and @coderjerk";
 
 /**
  * Upload the status and image prior to posting.

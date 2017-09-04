@@ -1,46 +1,33 @@
-<?php
-
+<?php    
 /**
- * creates an image object
- * using loremflickr
- * not used at the moment
- * TODO: get this working a little nicer.
+ * use the LoremFlickr site
+ * to get a random iimage 
+ * using cUrl, cos http requests are timing out on the 
+ * live server for some reason
  */
-class loremFlickr
+class LoremFlickr
 {
-    public $flickrQuery = "cheese";
 
+    function __construct( $height, $width, $name, $theme ) {
 
-    function __construct($flickrQuery)
-    {
-        $this->flickrQuery = $flickrQuery;
+        $this->height   = $height;
+        $this->width    = $width;
+        $this->name     = $name;
+        $this->theme    = $theme;
+
     }
 
-    function randomImage()
-    {
-        header("Content-Type: image/jpeg");
+    function getLoremFlickr() {
+        $ch = curl_init('http://www.loremflickr.com/'.$this->height.'/'.$this->width.'/'.$this->theme);
+        $fp = fopen($_SERVER["DOCUMENT_ROOT"].'/images/'.$this->name.'.jpg', 'wb');
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER , 1);
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+        curl_setopt($ch, CURLOPT_FILE, $fp);
+        curl_setopt($ch, CURLOPT_HEADER, 0);
+        curl_exec($ch);
+        curl_close($ch);
+        fclose($fp);
 
-        $url = 'https://loremflickr.com/476/249/'.$this->flickrQuery.'?random=1';
-        $curl = curl_init();
-        curl_setopt($curl, CURLOPT_URL, $url);
-        curl_setopt($curl, CURLOPT_HEADER, false);
-        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
-        curl_setopt($curl, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.1 Safari/537.11');
-        $img = curl_exec($curl);
-        $rescode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
-        curl_close($curl) ;
-
-        $outName = str_replace( ' ', '', $this->flickrQuery );
-
-        $input  = $img;
-        $output = $outName.'.jpg';
-
-
-        file_put_contents($output, file_get_contents($input));
-
+        return $_SERVER["DOCUMENT_ROOT"].'/images/'.$this->name.'.jpg';
     }
 }
-
-
- ?>

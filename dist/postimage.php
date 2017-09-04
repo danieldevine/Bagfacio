@@ -1,6 +1,8 @@
 <?php
 /**
- * Makes an image with an inspiring quote and shares it to our fb feed.
+ * 
+ * Makes an image with an inspiring quote 
+ * and shares it to our fb feed.
  *
  */
 

@@ -1,6 +1,6 @@
 # BAGFACIO
 
-v0.0.7
+v0.0.8
 
 ### Cool Social Bot for interestingness and fun.
 
