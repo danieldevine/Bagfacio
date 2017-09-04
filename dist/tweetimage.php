@@ -20,7 +20,7 @@ use Abraham\TwitterOAuth\TwitterOAuth;
  * should be an adjective
  * @var string
  */
-$theme = 'sad';
+$theme = 'rich';
 
 $dm = new dataMuse("rel_jja=".$theme."&max=600");
 
