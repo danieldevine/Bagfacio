@@ -19,14 +19,26 @@ include 'inc/data/colors.php';
 $faveColour = $colours[0];
 
 
+$dm = new dataMuse("rel_syn=food&max=600");
+$wordOne = $dm->randomWord();
+$wordTwo = $dm->randomWord();
+
+$friendo = "Friendo Profile for @" . $followers[0] . " \n" .
+"Best Friendo: @" . $followers[1] . "\n" .
+"Nemesis: " . $followers[2] . "\n" .
+"Fave Colour: @" . $faveColour . "\n" .
+"Fave Food : @" . $wordOne . "\n" .
+"Hates : @" . $wordTwo . "\n";
+
+
 header('Content-Type: image/jpeg');
-$friendo    = " @" .$followers[0]. " + \n" . "@".$followers[1];
+
 $img        = loadQuoteAlt($image, $friendo);
 imagepng($img, 'flarp.png' );
 imagedestroy($img);
 $image      = $site_url.'/flarp.png';
 
-$message    = "Hi there @".$followers[0]." : Your twitter wife is  @" . $followers[1] . ". You should follow @" . $followers[2] . ", @" . $followers[3] .  " and @coderjerk";
+$message    = "Hi there @".$followers[0]." This is your Friendo Profile. ". "You should follow @" . $followers[3] . ", @" . $followers[4] .  " and @coderjerk";
 
 $media      = $connection->upload('media/upload', ['media' => $image]);
 $parameters = [
