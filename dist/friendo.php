@@ -58,7 +58,7 @@ shuffle($followers);
 
 $friendo = "Friendo Profile for @" . $followers[0] . " \n" .
 "Best Friendo: @" . $followers[1] . "\n" .
-"Nemesis: " . $followers[2] . "\n" .
+"Nemesis: @" . $followers[2] . "\n" .
 "Fave Colour: " . $faveColour . "\n" .
 "Fave Food: " . $wordOne . "\n" .
 "Hates: " . $wordTwo . "\n";
@@ -70,7 +70,7 @@ imagepng($img, 'flarp.png' );
 imagedestroy($img);
 $image = $site_url.'/flarp.png';
 
-$message = "Hi there @".$followers[0]." This is your Friendo Profile. ". "You should follow @" . $followers[3] . ", @" . $followers[4] .  " and @coderjerk";
+$message = "Hi there @".$followers[0]." This is your Friendo Profile. ". "You should follow @" . $followers[1] . ", and avoid @" . $followers[2] . "Best wishes, Bagfacio X";
 
 $media = $connection->upload('media/upload', ['media' => $image]);
 $parameters = [
