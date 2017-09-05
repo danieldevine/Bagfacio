@@ -23,11 +23,11 @@ function loadQuoteAlt($imgname, $quote)
     $funt = $_SERVER["DOCUMENT_ROOT"] .'/assets/fonts/jollylodger.ttf';
 
     // Add some shadow to the text
-    imagettftext($im, 40, 0, 48, 150, $black, $funt, $quote);
+    imagettftext($im, 40, 0, 48, 154, $black, $funt, $quote);
 
     // Add the text
     // image, font size, rotation, left, top
-    imagettftext($im, 40, 0, 50, 160, $white, $funt, $quote);
+    imagettftext($im, 40, 0, 50, 150, $white, $funt, $quote);
 
     // tag the fecker
     imagettftext($im, 12, 0, 230, 580, $black, $font, 'Bagfacio Best Friendos');

@@ -70,7 +70,7 @@ imagepng($img, 'flarp.png' );
 imagedestroy($img);
 $image = $site_url.'/flarp.png';
 
-$message = "Hi there @".$followers[0]." This is your Friendo Profile. ". "You should follow @" . $followers[1] . ", and avoid @" . $followers[2] . "Best wishes, Bagfacio X";
+$message = "Hi there @".$followers[0]." This is your Friendo Profile. ". "You should follow @" . $followers[1] . ", and watch out for @" . $followers[2] . " Best wishes, Bagfacio X";
 
 $media = $connection->upload('media/upload', ['media' => $image]);
 $parameters = [
