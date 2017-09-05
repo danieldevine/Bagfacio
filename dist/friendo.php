@@ -16,7 +16,7 @@ $followers  = $followers->getFollowers();
 
 include 'inc/data/colors.php';
 
-$faveColour = $colours[0];
+$faveColour = $colors[0];
 
 
 $dm = new dataMuse("rel_syn=food&max=600");
