@@ -17,13 +17,11 @@ $theme      = 'fun';
 $image      = new LoremFlickr(600, 600, $name, $theme);
 $image      = $image->getLoremFlickr();
 
-
-
 include 'inc/data/colors.php';
 
 $faveColour = $colors[0];
 
-$dm = new dataMuse("rel_syn=food&max=600");
+$dm = new dataMuse("ml=food&max=600");
 $wordOne = $dm->randomWord();
 $wordTwo = $dm->randomWord();
 
@@ -67,16 +65,16 @@ $friendo = "Friendo Profile for @" . $followers[0] . " \n" .
 
 header('Content-Type: image/jpeg');
 
-$img        = loadQuoteAlt($image, $friendo);
+$img = loadQuoteAlt($image, $friendo);
 imagepng($img, 'flarp.png' );
 imagedestroy($img);
-$image      = $site_url.'/flarp.png';
+$image = $site_url.'/flarp.png';
 
-$message    = "Hi there @".$followers[0]." This is your Friendo Profile. ". "You should follow @" . $followers[3] . ", @" . $followers[4] .  " and @coderjerk";
+$message = "Hi there @".$followers[0]." This is your Friendo Profile. ". "You should follow @" . $followers[3] . ", @" . $followers[4] .  " and @coderjerk";
 
-$media      = $connection->upload('media/upload', ['media' => $image]);
+$media = $connection->upload('media/upload', ['media' => $image]);
 $parameters = [
     'status' => $message,
     'media_ids' => implode(',', [$media->media_id_string])
 ];
-$result     = $connection->post('statuses/update', $parameters);
+$result = $connection->post('statuses/update', $parameters);
