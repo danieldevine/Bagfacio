@@ -28,8 +28,35 @@ $wordOne = $dm->randomWord();
 $wordTwo = $dm->randomWord();
 
 $connection = new TwitterOAuth($CONSUMER_KEY, $CONSUMER_SECRET, $ACCESS_TOKEN, $ACCESS_TOKEN_SECRET);
-$followers  = new Followers($connection);
-$followers  = $followers->getFollowers();
+
+/**
+ * Get all followers, save as array of screen names.
+ * @var array
+ */
+$followers = array();
+$ids = $connection->get('followers/ids');
+
+/**
+ * chunked array of ids
+ * @var array
+ */
+$ids_arrays = array_chunk($ids->ids, 100);
+
+/**
+ * loop through ids and
+ * add screen names to array.
+ */
+foreach($ids_arrays as $implode) {
+  $results = $connection->get('users/lookup', array('user_id' => implode(',', $implode)));
+  foreach($results as $profile) {
+    $followers[] =  $profile->screen_name;
+  }
+}
+
+/**
+ * shuffle the deck.
+ */
+shuffle($followers);
 
 $friendo = "Friendo Profile for @" . $followers[0] . " \n" .
 "Best Friendo: @" . $followers[1] . "\n" .
