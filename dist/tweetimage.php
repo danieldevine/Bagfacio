@@ -37,7 +37,7 @@ $theme = 'rich';
  *
  * @var array
  */
-$dm = new dataMuse("rel_jja=".$theme."&max=600");
+$dm = new DataMuse("rel_jja=".$theme."&max=600");
 
 /**
  * Bring in an array of inspirational quotes

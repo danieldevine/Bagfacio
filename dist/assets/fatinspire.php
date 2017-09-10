@@ -21,7 +21,7 @@ use Abraham\TwitterOAuth\TwitterOAuth;
  */
 $theme = 'money';
 
-$dm = new dataMuse("rel_jja=".$theme."&max=600");
+$dm = new DataMuse("rel_jja=".$theme."&max=600");
 
 /**
  * bring in an array of inspirational quotes

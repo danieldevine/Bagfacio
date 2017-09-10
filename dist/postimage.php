@@ -25,7 +25,7 @@ require_once $root . '/inc/components/loaders/loader.php';
  */
 $theme = 'heartbroken';
 
-$dm = new dataMuse("ml=".$theme."&max=600");
+$dm = new DataMuse("ml=".$theme."&max=600");
 
 /**
  * Bring in an array of inspirational quotes

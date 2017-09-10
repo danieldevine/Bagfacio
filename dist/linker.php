@@ -18,9 +18,9 @@ require_once 'inc/components/loaders/loader.php';
 
 $root = $_SERVER["DOCUMENT_ROOT"];
 
-//use our dataMuse class to set a theme using ml(means like)
+//use our DataMuse class to set a theme using ml(means like)
 //plenty of other configurations available -- see here: www.datamuse.com/api/
-$dm = new dataMuse("ml=sadness&max=600");
+$dm = new DataMuse("ml=sadness&max=600");
 $wordOne = $dm->randomWord();
 $wordTwo = $dm->randomWord();
 

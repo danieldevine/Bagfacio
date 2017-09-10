@@ -14,7 +14,7 @@
 
 require_once 'inc/components/loaders/loader.php';
 
-$dm         = new dataMuse("ml=sad&max=600");
+$dm         = new DataMuse("ml=sad&max=600");
 $randomWord = $dm->randomWord();
 
 /**
