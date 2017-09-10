@@ -2,14 +2,24 @@
 /**
  * Posts a photo with a caption to our Facebook feed.
  *
+ * PHP Version 7.1
+ *
+ * @category Poster
+ * @package  Bagfacio
+ * @author   Dan Devine <jerk@coderjerk.com>
+ * @license  WTFPL http://www.wtfpl.net/txt/copying/
+ * @link     https://bagfacio.coderjerk.com
+ * @since    1.0.0
  */
-include_once 'inc/components/loaders/loader.php';
 
-$dm    = new dataMuse("ml=sad&max=600");
+require_once 'inc/components/loaders/loader.php';
+
+$dm         = new dataMuse("ml=sad&max=600");
 $randomWord = $dm->randomWord();
 
 /**
  * An array of neat captions to choose from
+ *
  * @var array
  */
 $captions =array(
@@ -25,24 +35,23 @@ shuffle($captions);
 /**
  * Get a random image from lorem flickr
  * http://loremflickr.com/
+ *
  * @var string
  */
 $fbImg     = 'https://loremflickr.com/476/249/'.$randomWord.'?random=1';
 $fbCaption = $captions[0];
-
-
 $photoData = [
  'caption' => $fbCaption,
  'url'     => $fbImg
 ];
 
 try {
- $response = $fb->post('/me/photos', $photoData, $pageAccessToken);
+    $response = $fb->post('/me/photos', $photoData, $pageAccessToken);
 } catch(Facebook\Exceptions\FacebookResponseException $e) {
- echo 'Graph returned an error: '.$e->getMessage();
- exit;
+    echo 'Graph returned an error: '.$e->getMessage();
+    exit;
 } catch(Facebook\Exceptions\FacebookSDKException $e) {
- echo 'Facebook SDK returned an error: '.$e->getMessage();
- exit;
+    echo 'Facebook SDK returned an error: '.$e->getMessage();
+    exit;
 }
 $graphNode = $response->getGraphNode();

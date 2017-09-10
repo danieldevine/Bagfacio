@@ -1,8 +1,7 @@
-<?php    
+<?php
 /**
- * use the LoremPixel site
- * to get a random iimage 
- * using cUrl, cos http requests are timing out on the 
+ * use the LoremPixel site to get a random iimage
+ * using cUrl, cos http requests are timing out on the
  * live server for some reason
  */
 class LoremPixel

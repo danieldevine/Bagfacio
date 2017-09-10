@@ -1,6 +1,6 @@
 <?php
 /**
- * Tweetimage.php
+ * Tweetimage
  *
  * Makes an image with an inspiring quote and message
  * and posts it to our twitter feed.
@@ -12,7 +12,7 @@
  * @author   Dan Devine <jerk@coderjerk.com>
  * @license  WTFPL http://www.wtfpl.net/txt/copying/
  * @link     https://bagfacio.coderjerk.com
- * @since    v0.0.6
+ * @since    1.0.0
  */
 
 $root     = $_SERVER["DOCUMENT_ROOT"];
@@ -116,6 +116,7 @@ $parameters = [
     'status' => $message,
     'media_ids' => implode(',', [$media->media_id_string])
 ];
+
 /**
  * Post to Twitter
  */

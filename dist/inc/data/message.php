@@ -1,7 +1,9 @@
 <?php
 
 /**
- * Some stale and crusty messages to choose from.
+ * Some stale and crusty messages
+ * to choose from.
+ *
  * @var array
  */
 $fbMessage = array(
@@ -11,6 +13,4 @@ $fbMessage = array(
      "When we were young, all we cared about was ". $wordOne . ". Now we're older and all we can manage is " . $wordTwo .". :( ;) :("
 
 );
-
-//shuffle the array for variety.
 shuffle($fbMessage);

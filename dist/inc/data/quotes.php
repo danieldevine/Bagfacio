@@ -1,8 +1,12 @@
 <?php
+
+
  /**
- * An array of neat captions to choose from
- * @var array
- */
+  * An array of neat captions
+  * to choose from
+  *
+  * @var array
+  */
 $quote = array(
     "Alls I need is \n" . $dm->randomWord() . ", " . $dm->randomWord() . " & \n " . $dm->randomWord() . "\n and I'm just fine. \n - Eddie Vader ",
     "Grateful for every \n" . $dm->randomWord() . " that life gives me. \n Even the " . $dm->randomWord(). " ones \n #" . $dm->randomWord(). "\n - Hugo Bose",
@@ -19,5 +23,4 @@ $quote = array(
     "The less you open \nyour heart to ".$dm->randomWord()."s,\n the more your ".$dm->randomWord()." suffers. \n- Deepak Oprah",
     "The way you ".$dm->randomWord().", \nthe way you ".$dm->randomWord().", \nthe way you ".$dm->randomWord().", \ncan influence your life \n by 70 to 120 years. \n- Deepak Chopper"
 );
-
 shuffle($quote);

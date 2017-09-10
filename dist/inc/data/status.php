@@ -1,8 +1,12 @@
 <?php
+
+
  /**
- * An array of well thought out statusssess to choose from
- * @var array
- */
+  * An array of well thought out
+  * statusssess to choose from
+  *
+  * @var array
+  */
 $status = array(
     "#inspiration #MakeYourOwnLane #Inspiring #teamInspired",
     "Retweet to make an Angels Smile, Fave to make a Man Inspires #teamInspired",
@@ -15,5 +19,4 @@ $status = array(
     "#inspirational #quotes #inspiraionalQuotes #teamInspired",
     "Like if you agree, Retweet if you believe #teamInspired"
 );
-
 shuffle($status);

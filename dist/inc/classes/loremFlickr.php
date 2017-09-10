@@ -1,7 +1,6 @@
 <?php
 /**
- * use the LoremFlickr site
- * to get a random iimage
+ * use the LoremFlickr site to get a random iimage
  * using cUrl, cos http requests are timing out on the
  * live server for some reason
  */

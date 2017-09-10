@@ -23,7 +23,6 @@ class Followers
         }
 
         $shuffled = shuffle($followers);
-
         return $shuffled;
     }
 }
