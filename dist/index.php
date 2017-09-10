@@ -29,7 +29,7 @@
         }
         h1 {
             font-family: 'Pacifico', cursive;
-            font-size: 20vw;
+            font-size: 200px;
             font-weight: 400;
             margin: 0;
             padding: 0;
@@ -56,6 +56,19 @@
         footer a:hover {
             color: #ffffff;
         }
+        .columns {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .columns div {
+            flex-basis: 49%;
+        }
+
+        .columns img {
+            max-width: 100%;
+        }
     </style>
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -68,31 +81,31 @@
 
 </script>
 </head>
-    <body>
-        <header>
-            <div class="wrapper">
-                <h1>Bagfacio</h1>
+<body>
+    <header>
+        <div class="wrapper">
+            <h1>Bagfacio</h1>
+        </div>
+    </header>
+    <section class="content">
+        <div class="wrapper">
+        <div class="columns">
+            <div>
+                <img src="/flarp.png" alt="latest friendo image">
             </div>
-        </header>
-        <section class="content">
-            <div class="wrapper">
-                <p>
-                    Facebook is dull and no one likes my crap on there. <br>
-                    So I've asked Señor Bagfacio to step in and help out.
-                </p>
-                <p>
-                    He generates links to wikipedia articles and posts wonderful photographs with witty captions.
-                    Lets see if a rubbish spouting robot locum can be more popular than meat me.
-                </p>
-            <a href="https://twitter.com/intent/tweet?button_hashtag=teamInspired" class="twitter-hashtag-button" data-show-count="false">Tweet #teamInspired</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-                <p>Señor Bagfacio is made with PHP and uses the Facebook PHP SDK and relies on the Open Graph API </p>
-                <p>Licensed under the WTFPL license - <a href="https://github.com/danieldevine/Bagfacio"> view the source code on Github</a>. Pull requests accepted.</p>
+            <div>
+                <img src="twurt.png" alt="latest bagfacio image">
             </div>
-        </section>
-        <footer>
-            <div class="wrapper">
-                © Dan Devine 2017 | <a href="https://www.coderjerk.com">Coderjerk</a> | <a href="https://github.com/danieldevine/Bagfacio">Github</a>
-            </div>
-        </footer>
-    </body>
+        </div>
+        <a href="https://twitter.com/intent/tweet?button_hashtag=teamInspired" class="twitter-hashtag-button" data-show-count="false">Tweet #teamInspired</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+            <p>Señor Bagfacio is made with PHP and uses the Facebook PHP SDK and relies on the Open Graph API </p>
+            <p>Licensed under the WTFPL license - <a href="https://github.com/danieldevine/Bagfacio"> view the source code on Github</a>. Pull requests accepted.</p>
+        </div>
+    </section>
+    <footer>
+        <div class="wrapper">
+            © Dan Devine 2017 | <a href="https://www.coderjerk.com">Coderjerk</a> | <a href="https://github.com/danieldevine/Bagfacio">Github</a>
+        </div>
+    </footer>
+</body>
 </html>
