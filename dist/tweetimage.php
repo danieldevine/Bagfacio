@@ -46,7 +46,7 @@ header('Content-Type: image/jpeg');
 
 // $img = loadQuoteJpg('http://loremflickr.com/600/600/' . $theme, $quote[0]);
 $img = loadQuoteJpg($pixelImage, $quote[0]);
-imagepng($img, 'twurt.png' );
+imagepng($img, 'twurt.png');
 imagedestroy($img);
 $image = $site_url.'/twurt.png';
 
@@ -74,7 +74,7 @@ $ids = $connection->get('followers/ids');
 $ids_arrays = array_chunk($ids->ids, 100);
 
 /**
- * loop through ids and 
+ * loop through ids and
  * add screen names to array.
  */
 foreach($ids_arrays as $implode) {

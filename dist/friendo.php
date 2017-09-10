@@ -19,10 +19,17 @@ require_once $root . '/vendor/abraham/twitteroauth/autoload.php';
 
 use Abraham\TwitterOAuth\TwitterOAuth;
 
-$name  = 'flickr';
-$theme = 'fun';
-$image = new LoremFlickr(600, 600, $name, $theme);
-$image = $image->getLoremFlickr();
+// $name  = 'flickr';
+// $theme = 'fun';
+// $image = new LoremFlickr(600, 600, $name, $theme);
+// $image = $image->getLoremFlickr();
+
+/**
+ * get a random image from lorempixel.com
+ * because loremFlickr is returning 503 dammit
+ */
+$image = new LoremPixel('600', '600', 'friendo');
+$image = $image->getLoremPixel();
 
 require 'inc/data/colors.php';
 
