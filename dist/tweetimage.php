@@ -1,40 +1,51 @@
 <?php
 /**
- * tweetimage.php
+ * Tweetimage.php
  *
- * @since v0.0.6
  * Makes an image with an inspiring quote and message
  * and posts it to our twitter feed.
  *
+ * PHP Version 7.1
+ *
+ * @category Bagfacio
+ * @package  Bagfacio
+ * @author   Dan Devine <jerk@coderjerk.com>
+ * @license  WTFPL http://www.wtfpl.net/txt/copying/
+ * @link     https://bagfacio.coderjerk.com
+ * @since    v0.0.6
  */
+
 $root     = $_SERVER["DOCUMENT_ROOT"];
 $site_url = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]";
 
-include_once $root . '/inc/components/loaders/loader.php';
-require_once("$root/vendor/abraham/twitteroauth/autoload.php");
+require_once $root . '/inc/components/loaders/loader.php';
+require_once $root . '/vendor/abraham/twitteroauth/autoload.php';
 
 use Abraham\TwitterOAuth\TwitterOAuth;
 
 /**
  * This will be the 'theme' of the text part.
  * should be an adjective
+ *
  * @var string
  */
 $theme = 'rich';
 
 /**
- * get some random words, using ou theme,
+ * Get some random words, using our theme,
  * in a randomly sorted array
+ *
+ * @var array
  */
 $dm = new dataMuse("rel_jja=".$theme."&max=600");
 
 /**
- * bring in an array of inspirational quotes
+ * Bring in an array of inspirational quotes
  */
-include $root . '/inc/data/quotes.php';
+require $root . '/inc/data/quotes.php';
 
 /**
- * get a random image from lorempixel.com
+ * Get a random image from lorempixel.com
  */
 $pixelImage = new LoremPixel('600', '600', 'bagfacio');
 $pixelImage = $pixelImage->getLoremPixel();
@@ -44,53 +55,55 @@ $pixelImage = $pixelImage->getLoremPixel();
  */
 header('Content-Type: image/jpeg');
 
-// $img = loadQuoteJpg('http://loremflickr.com/600/600/' . $theme, $quote[0]);
 $img = loadQuoteJpg($pixelImage, $quote[0]);
 imagepng($img, 'twurt.png');
 imagedestroy($img);
 $image = $site_url.'/twurt.png';
 
 /**
- * bring in an array of stauseseseseses
+ * Bring in an array of stauseseseseses
  */
-include $root . '/inc/data/status.php';
+require $root . '/inc/data/status.php';
 
 /**
- * connect to Twitter
+ * Connect to Twitter
  */
 $connection = new TwitterOAuth($CONSUMER_KEY, $CONSUMER_SECRET, $ACCESS_TOKEN, $ACCESS_TOKEN_SECRET);
 
 /**
  * Get all followers, save as array of screen names.
+ *
  * @var array
  */
 $followers = array();
 $ids = $connection->get('followers/ids');
 
 /**
- * chunked array of ids
+ * Chunked array of ids
+ *
  * @var array
  */
 $ids_arrays = array_chunk($ids->ids, 100);
 
 /**
- * loop through ids and
+ * Loop through ids and
  * add screen names to array.
  */
-foreach($ids_arrays as $implode) {
-  $results = $connection->get('users/lookup', array('user_id' => implode(',', $implode)));
-  foreach($results as $profile) {
-    $followers[] =  $profile->screen_name;
-  }
+foreach ($ids_arrays as $implode) {
+    $results = $connection->get('users/lookup', array('user_id' => implode(',', $implode)));
+    foreach ($results as $profile) {
+        $followers[] =  $profile->screen_name;
+    }
 }
 
 /**
- * shuffle the deck.
+ * Shuffle the deck.
  */
 shuffle($followers);
 
 /**
  * Create text portion with random status and random follower shoutouts.
+ *
  * @var string
  */
 $message = $status[0] . " @" . $followers[0] . " @" . $followers[1] . " @" . $followers[2]. " @" . $followers[3] . " @" . $followers[4];
@@ -104,6 +117,6 @@ $parameters = [
     'media_ids' => implode(',', [$media->media_id_string])
 ];
 /**
- * post to Twitter
+ * Post to Twitter
  */
 $result = $connection->post('statuses/update', $parameters);
