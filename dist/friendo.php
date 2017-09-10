@@ -1,27 +1,34 @@
 <?php
 /**
- * friendly friendo images
- * strictly for friendos.
+ * Friendly friendo images, strictly for friendos.
+ *
+ * PHP Version 7.1
+ *
+ * @category Friendo
+ * @package  Bagfacio
+ * @author   Dan Devine <jerk@coderjerk.com>
+ * @license  WTFPL http://www.wtfpl.net/txt/copying/
+ * @link     https://bagfacio.coderjerk.com
  */
 
-$root       = $_SERVER["DOCUMENT_ROOT"];
-$site_url   = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]";
+$root     = $_SERVER["DOCUMENT_ROOT"];
+$site_url = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]";
 
-include_once $root . '/inc/components/loaders/loader.php';
-require_once("$root/vendor/abraham/twitteroauth/autoload.php");
+require_once $root . '/inc/components/loaders/loader.php';
+require_once $root . '/vendor/abraham/twitteroauth/autoload.php';
 
 use Abraham\TwitterOAuth\TwitterOAuth;
 
-$name       = 'flickr';
-$theme      = 'fun';
-$image      = new LoremFlickr(600, 600, $name, $theme);
-$image      = $image->getLoremFlickr();
+$name  = 'flickr';
+$theme = 'fun';
+$image = new LoremFlickr(600, 600, $name, $theme);
+$image = $image->getLoremFlickr();
 
-include 'inc/data/colors.php';
+require 'inc/data/colors.php';
 
 $faveColour = $colors[0];
 
-$dm = new dataMuse("ml=food&max=600");
+$dm      = new dataMuse("ml=food&max=600");
 $wordOne = $dm->randomWord();
 $wordTwo = $dm->randomWord();
 
@@ -29,31 +36,30 @@ $connection = new TwitterOAuth($CONSUMER_KEY, $CONSUMER_SECRET, $ACCESS_TOKEN, $
 
 /**
  * Get all followers, save as array of screen names.
+ *
  * @var array
  */
 $followers = array();
 $ids = $connection->get('followers/ids');
 
 /**
- * chunked array of ids
+ * Chunked array of ids
+ *
  * @var array
  */
 $ids_arrays = array_chunk($ids->ids, 100);
 
 /**
- * loop through ids and
+ * Loop through ids and
  * add screen names to array.
  */
-foreach($ids_arrays as $implode) {
-  $results = $connection->get('users/lookup', array('user_id' => implode(',', $implode)));
-  foreach($results as $profile) {
-    $followers[] =  $profile->screen_name;
-  }
+foreach ($ids_arrays as $implode) {
+    $results = $connection->get('users/lookup', array('user_id' => implode(',', $implode)));
+    foreach ($results as $profile) {
+        $followers[] =  $profile->screen_name;
+    }
 }
 
-/**
- * shuffle the deck.
- */
 shuffle($followers);
 
 $friendo = "Friendo Profile for @" . $followers[0] . " \n" .
@@ -66,7 +72,7 @@ $friendo = "Friendo Profile for @" . $followers[0] . " \n" .
 header('Content-Type: image/jpeg');
 
 $img = loadQuoteAlt($image, $friendo);
-imagepng($img, 'flarp.png' );
+imagepng($img, 'flarp.png');
 imagedestroy($img);
 $image = $site_url.'/flarp.png';
 
