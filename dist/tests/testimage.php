@@ -33,5 +33,5 @@ header('Content-Type: image/jpeg');
 
 $img = loadQuoteJpg('http://loremflickr.com/600/600/stupid', $quote[0]);
 
-imagepng($img, 'tweetimage.png' );
+imagepng($img, 'tweetimage.png');
 imagedestroy($img);

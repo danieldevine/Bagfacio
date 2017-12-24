@@ -1,4 +1,5 @@
 <?php
+namespace Bagfacio;
 
 /**
  * use the LoremPixel site to get a random iimage
@@ -8,18 +9,18 @@
 class LoremPixel
 {
 
-    function __construct( $height, $width, $name ) {
-
+    private function __construct($height, $width, $name)
+    {
         $this->height   = $height;
         $this->width    = $width;
         $this->name     = $name;
-
     }
 
-    function getLoremPixel() {
+    public function getLoremPixel()
+    {
         $ch = curl_init('http://www.lorempixel.com/'.$this->height.'/'.$this->width.'/');
         $fp = fopen($_SERVER["DOCUMENT_ROOT"].'/images/'.$this->name.'.jpg', 'wb');
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER , 1);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
         curl_setopt($ch, CURLOPT_FILE, $fp);
         curl_setopt($ch, CURLOPT_HEADER, 0);
@@ -30,5 +31,3 @@ class LoremPixel
         return $_SERVER["DOCUMENT_ROOT"].'/images/'.$this->name.'.jpg';
     }
 }
-
-

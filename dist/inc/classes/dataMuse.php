@@ -12,6 +12,8 @@
  * @since    1.0.0
  */
 
+ namespace Bagfacio;
+
 /**
  * Creates a word object using the Datamuse API
  *
@@ -35,7 +37,7 @@ class DataMuse
      *
      * @return string
      */
-    function __construct($dmQuery)
+    protected function __construct($dmQuery)
     {
         $this->dmQuery = $dmQuery;
     }
@@ -45,7 +47,7 @@ class DataMuse
      *
      * @return string
      */
-    function randomWord()
+    public function randomWord()
     {
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_URL, 'https://api.datamuse.com/words?'. $this->dmQuery);
@@ -58,7 +60,7 @@ class DataMuse
         $result = json_decode($resp, true);
         shuffle($result);
 
-        foreach ($result as $res ) {
+        foreach ($result as $res) {
             return  $res['word'];
             break;
         }

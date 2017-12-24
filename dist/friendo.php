@@ -20,23 +20,18 @@ require_once $root . '/vendor/abraham/twitteroauth/autoload.php';
 
 use Abraham\TwitterOAuth\TwitterOAuth;
 
-// $name  = 'flickr';
-// $theme = 'fun';
-// $image = new LoremFlickr(600, 600, $name, $theme);
-// $image = $image->getLoremFlickr();
-
 /**
  * get a random image from lorempixel.com
  * because loremFlickr is returning 503 dammit
  */
-$image = new LoremPixel('600', '600', 'friendo');
+$image = new Bagfacio\LoremPixel('600', '600', 'friendo');
 $image = $image->getLoremPixel();
 
 require 'inc/data/colors.php';
 
 $faveColour = $colors[0];
 
-$dm      = new DataMuse("ml=food&max=600");
+$dm      = new Bagfacio\DataMuse("ml=holiday&max=600");
 $wordOne = $dm->randomWord();
 $wordTwo = $dm->randomWord();
 
@@ -84,7 +79,7 @@ imagepng($img, 'flarp.png');
 imagedestroy($img);
 $image = $site_url.'/flarp.png';
 
-$message = "Hey @". $followers[0] .", this is your Friendo Profile. ". "You should hang with @" . $followers[1] . ", and watch out for @" . $followers[2] . " Best wishes, Bagfacio X";
+$message = "Hey @". $followers[0] .", this is your Friendo Profile. ". "You should hang with @" . $followers[1] . ", and watch out for @" . $followers[2] . " Merry Xmas, Bagfacio X";
 
 $media = $connection->upload('media/upload', ['media' => $image]);
 $parameters = [

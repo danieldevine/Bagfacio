@@ -29,7 +29,7 @@ use Abraham\TwitterOAuth\TwitterOAuth;
  *
  * @var string
  */
-$theme = 'rich';
+$theme = 'christmas';
 
 /**
  * Get some random words, using our theme,

@@ -8,7 +8,5 @@ By םan 🦑 םevine
 
 Bagfacio is a cool bot pal for Twitter and Facebook.
 
-He'll tweet a range of inspiatonal quotes from thought leaders like Glen Frey and Eddie Vader
+He'll tweet a range of inspirational quotes from thought leaders like Glen Frey and Eddie Vader
 and Create Friendo profiles to help people do Twitter more betterly.
-
-

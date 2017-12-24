@@ -21,7 +21,7 @@ use Abraham\TwitterOAuth\TwitterOAuth;
  */
 $theme = 'money';
 
-$dm = new DataMuse("rel_jja=".$theme."&max=600");
+$dm = new Bagfacio\DataMuse("rel_jja=".$theme."&max=600");
 
 /**
  * bring in an array of inspirational quotes
@@ -35,7 +35,7 @@ header('Content-Type: image/jpeg');
 
 $img = loadQuoteJpg('http://loremflickr.com/600/600/' . $theme, $quote[0]);
 
-imagepng($img, 'twart.png' );
+imagepng($img, 'twart.png');
 imagedestroy($img);
 
 $image = 'https://bagfacio.coderjerk.com/twart.png';
@@ -63,11 +63,11 @@ $ids_arrays = array_chunk($ids->ids, 100);
 /**
  * loop through ids and add screen names to array.
  */
-foreach($ids_arrays as $implode) {
-  $results = $connection->get('users/lookup', array('user_id' => implode(',', $implode)));
-  foreach($results as $profile) {
-    $followers[] =  $profile->screen_name;
-  }
+foreach ($ids_arrays as $implode) {
+    $results = $connection->get('users/lookup', array('user_id' => implode(',', $implode)));
+    foreach ($results as $profile) {
+        $followers[] =  $profile->screen_name;
+    }
 }
 
 /**
